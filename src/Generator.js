@@ -1,3 +1,5 @@
+const MissionUtils = require("@woowacourse/mission-utils");
+
 class Generator {
     randomNumber() {
         const computer = [];
@@ -7,6 +9,8 @@ class Generator {
                 computer.push(number);
             }
         }
+        console.log(computer);
         return computer;
     }
 }
+module.exports = Generator;
