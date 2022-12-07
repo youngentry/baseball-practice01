@@ -115,11 +115,7 @@ while (computer.length < 3) {
 
 ## Generator
 
--   랜덤한 세자리의 숫자를 생성합니다.
-
-## Input
-
--   숫자를 입력받습니다.
+-   [x] 랜덤한 세자리의 숫자를 생성합니다.
 
 ## Validation
 
