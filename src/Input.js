@@ -6,7 +6,8 @@ const MESSAGE = require("./message");
 class Input {
     readPitch(baseball) {
         Console.readLine(MESSAGE.INPUT, (pitchNumber) => {
-            const ball = baseball.countBall(pitchNumber);
+            console.log("asdasd");
+            baseball.setBall(pitchNumber);
         });
     }
 }
