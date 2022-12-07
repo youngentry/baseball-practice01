@@ -12,7 +12,6 @@ class App {
         this.printer.start();
         const computerNumber = new Generator().randomNumber();
         const baseball = new Baseball(computerNumber);
-
         this.input.readPitch(baseball);
     }
 }

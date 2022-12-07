@@ -17,7 +17,6 @@ class Baseball {
                 strikeCount++;
             }
         });
-        console.log(strikeCount + MESSAGE.STRIKE);
         this.#strike = strikeCount;
     }
 
@@ -28,8 +27,11 @@ class Baseball {
                 ballCount++;
             }
         });
-        console.log(ballCount - this.#strike + MESSAGE.BALL);
         this.#ball = ballCount - this.#strike;
+    }
+
+    getStrikeAndBall() {
+        return [this.#strike, this.#ball];
     }
 }
 
