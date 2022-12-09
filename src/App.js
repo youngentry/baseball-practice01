@@ -1,18 +1,12 @@
-const Baseball = require("./Baseball");
-const Generator = require("./Generator");
-const Input = require("./Input");
-const Printer = require("./Printer");
+const Controller = require("./Controller");
 
 class App {
+    #controller;
     constructor() {
-        this.printer = new Printer();
-        this.input = new Input();
+        this.#controller = new Controller();
     }
     play() {
-        this.printer.start();
-        const computerNumber = new Generator().randomNumber();
-        const baseball = new Baseball(computerNumber);
-        this.input.readPitch(baseball);
+        this.#controller.start();
     }
 }
 
