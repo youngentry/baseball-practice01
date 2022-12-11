@@ -1,7 +1,7 @@
 const validateNumber = (number) => {
     // 에러 발생시키기
     const [isNotValidRange, isDuplicate, isNotValidNumber] = [validateRange(number), validateDuplication(number), validateNaturalNumber(number)];
-    return true;
+    return number;
 };
 
 const validateRange = (number) => {

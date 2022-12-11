@@ -5,20 +5,15 @@ const MESSAGE = require("./message");
 const Printer = require("./Printer");
 
 const Input = {
-    readPitch2(callback) {
+    readPitch(callback) {
         Console.readLine(MESSAGE.INPUT, (userInput) => {
             callback(userInput);
         });
     },
-
-    // readPitch(baseball) {
-    //     Console.readLine(MESSAGE.INPUT, (pitchNumber) => {
-    //         baseball.setStrike(pitchNumber);
-    //         baseball.setBall(pitchNumber);
-    //         const strikeAndBall = baseball.getStrikeAndBall();
-    //         this.printer.hint(strikeAndBall);
-    //         this.readPitch(baseball);
-    //     });
-    // }
+    readCommand(callback) {
+        Console.readLine(MESSAGE.INPUT, (userInput) => {
+            callback(userInput);
+        });
+    },
 };
 module.exports = Input;
