@@ -13,9 +13,7 @@ class BaseballModel {
     }
 
     setUserNumber(userNumber) {
-        console.log(userNumber, "usernumberser");
         this.#userNumber = userNumber;
-        console.log(this.#userNumber, "888");
     }
     getUserNumber() {
         return this.#userNumber;

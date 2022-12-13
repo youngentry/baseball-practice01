@@ -1,5 +1,6 @@
+const { Console } = require("@woowacourse/mission-utils");
 const { utilGenerator } = require("../utilities/utilGenerator");
-const { validateNumber } = require("../utilities/UtilValidation");
+const { validateNumber, validateCommand } = require("../utilities/UtilValidation");
 const OutputView = require("../view/OutputView");
 const InputView = require("../view/InputView");
 
@@ -14,29 +15,60 @@ class BaseballController {
         this.#baseballModel = baseballModel;
     }
 
+    //1
     printStart() {
         this.#outputView.start();
-        console.log(this.#inputView);
-        console.log(this.#outputView);
-        console.log(this.#baseballModel);
     }
 
+    //2
     setComputerNumber() {
         const computerNumber = utilGenerator.randomNumber();
         this.#baseballModel.setComputerNumber(computerNumber);
     }
 
+    //3
     inputUserNumber(callback) {
         this.#inputView.readPitch((userInput) => {
-            this.setUserNumber(userInput, callback);
+            this.validateUserNumber(userInput, callback);
         });
     }
 
-    setUserNumber(userInput, callback) {
+    //3-1
+    validateUserNumber(userInput, callback) {
         const validUserNumber = validateNumber(userInput);
-        console.log(validUserNumber);
         this.#baseballModel.setUserNumber(validUserNumber);
         callback();
+    }
+
+    //4 model.getUserNumber
+
+    //5
+    setPitchResult(strike, ball) {
+        this.#baseballModel.setStrikeCount(strike);
+        this.#baseballModel.setBallCount(ball);
+    }
+    printJudge(strike, ball) {
+        this.#outputView.hint(strike, ball);
+    }
+
+    printSuccess() {
+        this.#outputView.success();
+    }
+
+    inputUserCommand(callback) {
+        this.#inputView.readCommand((userCommand) => {
+            this.validateUserCommand(userCommand, callback);
+        });
+    }
+
+    validateUserCommand(userCommand, callback) {
+        const validUserCommand = validateCommand(userCommand);
+        this.#baseballModel.setUserCommand(validUserCommand);
+        callback();
+    }
+
+    end() {
+        Console.close();
     }
 }
 module.exports = BaseballController;

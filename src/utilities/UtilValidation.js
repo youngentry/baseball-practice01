@@ -26,4 +26,12 @@ const validateNaturalNumber = (number) => {
     }
 };
 
-module.exports = { validateNumber };
+const validateCommand = (command) => {
+    const isValidUserCommand = command === "1" || command === "2";
+    if (!isValidUserCommand) {
+        throw new Error("[잘못된 입력]게임을 새로 시작하려면 1, 종료하려면 2를 입력해주세요.");
+    }
+    return command;
+};
+
+module.exports = { validateNumber, validateCommand };

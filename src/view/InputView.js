@@ -7,9 +7,7 @@ class InputView {
     }
 
     readCommand(callback) {
-        Console.readLine(MESSAGE.INPUT, (userInput) => {
-            callback(userInput);
-        });
+        Console.readLine(MESSAGE.RESTART, callback);
     }
 }
 module.exports = InputView;
